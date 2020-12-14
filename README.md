@@ -22,3 +22,6 @@ conda activate myenvironment
 pip install -e .
 ```
 
+This then allows you to import modules from the package folder inside your run/run.py script, which
+should be the script implementing the pipeline steps (i.e., the script called from command line).
+
