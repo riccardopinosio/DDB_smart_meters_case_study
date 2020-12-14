@@ -1,0 +1,5 @@
+{
+    "base_folder": "here_goes_the_path_to_the_data_folder",
+    "cleaning_params": {},
+    "training_params": {}
+}
