@@ -9,7 +9,7 @@ from forecasting.load_data import DataLoader
 def main():
     # here goes the pipeline code
     with open('./conf.json', 'r') as f:
-        conf = json.load(f)
+      conf = json.load(f)
     data_loader = DataLoader(base_folder=conf['base_folder'])
     raw_data = data_loader.load_data()
 
