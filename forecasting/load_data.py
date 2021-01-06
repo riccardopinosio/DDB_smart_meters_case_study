@@ -1,5 +1,7 @@
 '''Contains classes to load data
 '''
+import pandas as pd
+import os
 
 class DataLoader(object):
 
@@ -7,5 +9,4 @@ class DataLoader(object):
         self.base_folder = base_folder
 
     def load_data(self):
-        # here the code to load raw data from base folder is implemented
-        raise NotImplementedError('Not yet implemented')
+        # load the power network data
