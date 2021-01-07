@@ -1,5 +1,19 @@
 {
-    "base_folder": "./data",
+    "base_folder": "C:/Users/RiccardoPinosio/Repositories/personal/forecasting_case_study/data",
+    "loading_params": {
+        "reload_clean_data": true
+    },
     "cleaning_params": {},
-    "training_params": {}
+    "training_params": {
+        "test_perc": 0.2,
+        "hypertuning": {
+            "RF_params": {
+                "n_estimators": [100, 200, 300, 400],
+                "max_depth": [2,4,6,8]
+            },
+            "xgboost_params": {
+                "n_estimators": [100]
+            }
+        }
+    }
 }
