@@ -8,11 +8,8 @@
         "test_perc": 0.2,
         "hypertuning": {
             "RF_params": {
-                "n_estimators": [100, 200, 300, 400],
+                "n_estimators": [100, 200, 300, 400, 500],
                 "max_depth": [2,4,6,8]
-            },
-            "xgboost_params": {
-                "n_estimators": [100]
             }
         }
     }

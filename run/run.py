@@ -99,6 +99,7 @@ def main():
   ## SELECT BEST FORECASTING MODEL WITH 10 FOLD CV ON TRAIN FEATURES
   train_set = featurized_data.merge(validation_mapping.query("test == False")[['LCLid',
   'date']])
+
   hypertuner_rf = Hypertuner(estimator = RandomForestRegressor(random_state=1234),
   tuning_params = conf["training_params"]["hypertuning"]["RF_params"],
   validation_mapping = validation_mapping
