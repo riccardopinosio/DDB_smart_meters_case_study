@@ -8,7 +8,6 @@ class TransformerFitter(TransformerMixin):
         return self
 
 class Featurizer(TransformerFitter):
-
     def __init__(self, housing_info):
         self.housing_info = housing_info
 
@@ -23,8 +22,9 @@ class Featurizer(TransformerFitter):
 
         # calculate the rolling features for each household
         for window in rolling_windows:
-            features = (X.groupby('LCLid')
-            .rolling(window, on='date', periods=1)['kwh']
+            features = (
+                X.groupby('LCLid')
+                .rolling(window, on='date', periods=1)['kwh']
             .agg(aggregations))
             features = features.rename(columns=lambda x: x + '_' + str(window))
             window_features.append(features)
@@ -33,13 +33,14 @@ class Featurizer(TransformerFitter):
         rolling_features = pd.concat(window_features, axis=1)
         rolling_features = rolling_features.reset_index()
         # using 0 as NA flag
-        rolling_features = rolling_features.fillna(0)
+        rolling_features = rolling_features.fillna(-1)
 
         # dummify with sklearn one-hot-encoder
         # https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html
         housing_info = self.housing_info
         enc = OneHotEncoder(handle_unknown='ignore')
         enc.fit(housing_info[['stdorToU', 'Acorn', 'Acorn_grouped']])
+        self.encoder = enc
         housing_info_dummy = enc.transform(housing_info[['stdorToU', 'Acorn', 'Acorn_grouped']]).toarray()
         housing_info_dummy = pd.DataFrame(housing_info_dummy)
         cols = []
