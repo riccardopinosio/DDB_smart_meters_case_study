@@ -1,6 +1,8 @@
 # DDB_forecasting_case_study
 
-Example ML pipeline for DDB master.
+Example ML pipeline for DDB master. The data needed to run this pipeline can be found at:
+
+https://www.kaggle.com/jeanmidev/smart-meters-in-london
 
 Please use this repository as a template for your funda product.
 
